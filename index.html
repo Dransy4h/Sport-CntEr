@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cikao Park 🌷</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.cikaopark.com/assets/logos/logo_cikaopark.svg" alt="Cikao Park Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">
+                            Outlets
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#waterpark">Water Park</a></li>
+                            <li><a class="dropdown-item" href="#taman-satwa">Taman Satwa</a></li>
+                            <li><a class="dropdown-item" href="#wahana">Wahana</a></li>
+                            <li><a class="dropdown-item" href="#kuliner">Kuliner</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#price">Event/Promo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CTA FLOATING -->
+    <a href="https://wa.me/628111239933" class="btn-floating-wa d-flex align-items-center justify-content-center gap-2 fw-semibold" target="_blank">
+        <span class="d-none d-md-inline">Pesan Tiket Cikao Park</span>
+        <i class="bi bi-whatsapp fs-5"></i>
+    </a>
+
+    <!-- HEADER -->
+    <div class="hero-header" style="background-image: url('https://www.cikaopark.com/assets/images/cp/waterpark_3.webp');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Welcome to Cikao Park</h1>
+            <p>Satu Tempat, Banyak Cerita</p>
+        </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <section id="intro" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <img src="https://www.cikaopark.com/assets/logos/logo_cikaopark.svg" alt="Cikao Park Logo" class="img-fluid intro-logo">
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-7">
+                    <h2 class="fw-bold mb-3">Cikao Park</h2>
+                    <p class="lead-text">Liburan santai tapi tetap seru? Cikao Water Park adalah destinasi wajib buat keluarga! Dari kolam ombak yang bikin berasa di pantai hingga kolam anak dan dewasa untuk semua usia, keseruannya nggak ada habisnya. Mau tantangan lebih? Sewa kayak atau pedal boat dan jelajahi air dengan gaya! Yuk, ciptakan momen tak terlupakan di Cikao Water Park!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIQUE SELLING POINT -->
+    <section id="usp" class="section-padding section-blue">
+        <div class="container text-center">
+            <div class="heading">
+                <h2 class="fw-bold mb-4 text-white">Ada Apa Aja di Cikao Park?</h2>
+            </div>
+            <img src="https://www.cikaopark.com/assets/images/cp/GuideMap.jpg" alt="Peta Cikao Park" class="guide-map">
+            <p class="lead mt-5 mb-5 text-white">✨ Luas dan Lengkap Banget kan? Yuk Jelajahi Semua! 🔍</p>
+            <div class="row justify-content-center">
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <a href="#waterpark" class="icon-item">
+                        <div class="icon-circle icon-blue">
+                            <i class="bi bi-tsunami"></i>
+                        </div>
+                        <p>Water Park</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <a href="#taman-satwa" class="icon-item">
+                        <div class="icon-circle icon-green">
+                            <i class="bi bi-feather"></i>
+                        </div>
+                        <p>Taman Satwa</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <a href="#wahana" class="icon-item">
+                        <div class="icon-circle icon-red">
+                            <i class="bi bi-rocket-takeoff"></i>
+                        </div>
+                        <p>Wahana</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <a href="#kuliner" class="icon-item">
+                        <div class="icon-circle icon-yellow">
+                            <i class="bi bi-cup-hot"></i>
+                        </div>
+                        <p>Kuliner</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <a href="#taman-bunga" class="icon-item">
+                        <div class="icon-circle icon-pink">
+                            <i class="bi bi-flower1"></i>
+                        </div>
+                        <p>Spot Foto</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <a href="#rumah-ilusi" class="icon-item">
+                        <div class="icon-circle icon-purple">
+                            <i class="bi bi-eye-fill"></i>
+                        </div>
+                        <p>Rumah Ilusi</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <a href="#pendopo" class="icon-item">
+                        <div class="icon-circle icon-black">
+                            <i class="bi bi-bank"></i>
+                        </div>
+                        <p>Pendopo</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WATERPARK SECTION -->
+    <section id="waterpark" class="section-padding gallery text-center section-waterpark">
+        <div class="container">
+            <div class="heading">
+                <h2 class="fw-bold">CIKAO WATER PARK</h2>
+                <p class="lead mb-4">Bermain air bersama keluarga dengan berbagai macam wahana mulai dari: <br>
+                    Kolam Ombak, Kolam Pasir Anak, Kolam Dewasa, Kolam Busa, dan Lazy River!</p>
+            </div>
+            <!-- Main Display -->
+            <div class="main-slide mx-auto rounded-4 overflow-hidden shadow-lg mb-4">
+                <img id="waterpark-main" src="https://www.cikaopark.com/assets/images/cp/waterpark_2.webp" alt="Water Park" class="w-100 h-100 object-fit-cover">
+            </div>
+            <!-- Navigation Bar -->
+            <div class="d-flex align-items-center justify-content-center gap-3">
+                <button class="btn-nav btn-nav-waterpark rounded-circle" data-gallery="waterpark" data-direction="prev">
+                    <i class="bi bi-arrow-left-short fs-1"></i>
+                </button>
+                <div class="thumb-wrapper">
+                    <div class="thumb-strip" id="waterpark-thumbs">
+                        <img src="https://www.cikaopark.com/assets/images/cp/waterpark_1.webp" data-index="0" class="thumb" data-gallery="waterpark">
+                        <img src="https://www.cikaopark.com/assets/images/cp/waterpark_2.webp" data-index="1" class="thumb active" data-gallery="waterpark">
+                        <img src="https://www.cikaopark.com/assets/images/cp/waterpark_3.webp" data-index="2" class="thumb" data-gallery="waterpark">
+                        <img src="https://www.cikaopark.com/assets/images/cp/waterpark_4.webp" data-index="3" class="thumb" data-gallery="waterpark">
+                        <img src="https://www.cikaopark.com/assets/images/cp/waterpark_5.JPG" data-index="4" class="thumb" data-gallery="waterpark">
+                        <img src="https://www.cikaopark.com/assets/images/cp/waterpark_6.webp" data-index="5" class="thumb" data-gallery="waterpark">
+                    </div>
+                </div>
+                <button class="btn-nav btn-nav-waterpark rounded-circle" data-gallery="waterpark" data-direction="next">
+                    <i class="bi bi-arrow-right-short fs-1"></i>
+                </button>
+            </div>
+            <p class="lead mt-5 mb-4">Tersedia berbagai perosotan dan tambahkan pengalaman Anda dengan menyewa: <br>
+                perahu🛶, paddle board 🏄🏽‍♀️, pelampung ban 🛟, dan, canoe! 🚣🏻</p>
+        </div>
+    </section>
+
+    <!-- TAMAN SATWA SECTION -->
+    <section id="taman-satwa" class="section-padding gallery text-center section-satwa">
+        <div class="container">
+            <div class="heading">
+                <h2 class="fw-bold">TAMAN SATWA</h2>
+                <p class="lead mb-4">Belajar sambil bermain di Taman Satwa dengan berbagai hewan eksotik, serangga unik, dan dinosaurus yang baik.</p>
+            </div>
+            <!-- Main Display -->
+            <div class="main-slide mx-auto rounded-4 overflow-hidden shadow-lg mb-4">
+                <img id="satwa-main" src="https://www.cikaopark.com/assets/images/cp/Serangga.webp" alt="Taman Satwa" class="w-100 h-100 object-fit-cover">
+            </div>
+            <!-- Navigation Bar -->
+            <div class="d-flex align-items-center justify-content-center gap-3">
+                <button class="btn-nav btn-nav-satwa rounded-circle" data-gallery="satwa" data-direction="prev">
+                    <i class="bi bi-arrow-left-short fs-1"></i>
+                </button>
+                <div class="thumb-wrapper">
+                    <div class="thumb-strip" id="satwa-thumbs">
+                        <img src="https://www.cikaopark.com/assets/images/cp/TamanSatwa.JPG" data-index="0" class="thumb" data-gallery="satwa">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Serangga.webp" data-index="1" class="thumb active" data-gallery="satwa">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Serangga_1.jpg" data-index="2" class="thumb" data-gallery="satwa">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Serangga_2.jpg" data-index="3" class="thumb" data-gallery="satwa">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Serangga_3.jpg" data-index="4" class="thumb" data-gallery="satwa">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Serangga_4.jpg" data-index="5" class="thumb" data-gallery="satwa">
+                        <img src="https://www.cikaopark.com/assets/images/cp/TamanHobbit_1.webp" data-index="6" class="thumb" data-gallery="satwa">
+                        <img src="https://www.cikaopark.com/assets/images/cp/RumahHobbit_1.webp" data-index="7" class="thumb" data-gallery="satwa">
+                        <img src="https://www.cikaopark.com/assets/images/cp/RumahHobbit_2.webp" data-index="8" class="thumb" data-gallery="satwa">
+                    </div>
+                </div>
+                <button class="btn-nav btn-nav-satwa rounded-circle" data-gallery="satwa" data-direction="next">
+                    <i class="bi bi-arrow-right-short fs-1"></i>
+                </button>
+            </div>
+            <p class="lead mt-5 mb-4">Kunjungi Rumah Hobbit yang Iconic dan Museum Serangga untuk wisata edukasi tanpa biaya tambahan.</p>
+            
+            <!-- Animal Photo Grid -->
+            <div class="container my-5">
+                <div class="row g-3 justify-content-center">
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="animal-card">
+                            <img src="https://www.cikaopark.com/assets/images/cp/TamanSatwa_4.webp" alt="Animal 1">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="animal-card">
+                            <img src="https://www.cikaopark.com/assets/images/cp/TamanSatwa_5.jpg" alt="Animal 2">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="animal-card">
+                            <img src="https://www.cikaopark.com/assets/images/cp/Marsupilami.JPG" alt="Animal 3">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="animal-card">
+                            <img src="https://www.cikaopark.com/assets/images/cp/Iguana.JPG" alt="Animal 4">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="animal-card">
+                            <img src="https://www.cikaopark.com/assets/images/cp/Parrot.JPG" alt="Animal 5">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="animal-card">
+                            <img src="https://www.cikaopark.com/assets/images/cp/Elang.jpg" alt="Animal 6">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="animal-card">
+                            <img src="https://www.cikaopark.com/assets/images/cp/TamanSatwa_1.webp" alt="Animal 7">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="animal-card">
+                            <img src="https://www.cikaopark.com/assets/images/cp/TamanSatwa_2.webp" alt="Animal 8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="lead mt-3 mb-4">Bisa interaksi dan memberi makan hewan juga lohhh.</p>
+        </div>
+    </section>
+
+    <!-- WAHANA SECTION -->
+    <section id="wahana" class="section-padding gallery text-center section-wahana">
+        <div class="container">
+            <div class="heading">
+                <h2 class="fw-bold">WAHANA PERMAINAN</h2>
+                <p class="lead mb-4">Mainkan aneka wahana permainan yang cocok denganmu, dari yang nyantai sampai bikin badan gemetar</p>
+            </div>
+            <!-- Main Display -->
+            <div class="main-slide mx-auto rounded-4 overflow-hidden shadow-lg mb-4">
+                <img id="wahana-main" src="https://www.cikaopark.com/assets/images/cp/Permainan2.JPG" alt="Wahana" class="w-100 h-100 object-fit-cover">
+            </div>
+            <!-- Navigation Bar -->
+            <div class="d-flex align-items-center justify-content-center gap-3">
+                <button class="btn-nav btn-nav-wahana rounded-circle" data-gallery="wahana" data-direction="prev">
+                    <i class="bi bi-arrow-left-short fs-1"></i>
+                </button>
+                <div class="thumb-wrapper">
+                    <div class="thumb-strip" id="wahana-thumbs">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Permainan1.webp" data-index="0" class="thumb" data-gallery="wahana">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Permainan2.JPG" data-index="1" class="thumb active" data-gallery="wahana">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Permainan3.webp" data-index="2" class="thumb" data-gallery="wahana">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Permainan4.JPG" data-index="3" class="thumb" data-gallery="wahana">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Permainan5.JPG" data-index="4" class="thumb" data-gallery="wahana">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Permainan6.jpg" data-index="5" class="thumb" data-gallery="wahana">
+                    </div>
+                </div>
+                <button class="btn-nav btn-nav-wahana rounded-circle" data-gallery="wahana" data-direction="next">
+                    <i class="bi bi-arrow-right-short fs-1"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- KULINER SECTION -->
+    <section id="kuliner" class="section-padding gallery text-center section-kuliner">
+        <div class="container">
+            <div class="heading">
+                <h2 class="fw-bold">KULINER</h2>
+                <p class="lead mb-4">Duduk santai sambil menikmati makanan lezat dan minuman yang menyegarkan</p>
+            </div>
+            <!-- Main Display -->
+            <div class="main-slide mx-auto rounded-4 overflow-hidden shadow-lg mb-4">
+                <img id="kuliner-main" src="https://www.cikaopark.com/assets/images/cp/Castle_2.webp" alt="Kuliner" class="w-100 h-100 object-fit-cover">
+            </div>
+            <!-- Navigation Bar -->
+            <div class="d-flex align-items-center justify-content-center gap-3">
+                <button class="btn-nav btn-nav-kuliner rounded-circle" data-gallery="kuliner" data-direction="prev">
+                    <i class="bi bi-arrow-left-short fs-1"></i>
+                </button>
+                <div class="thumb-wrapper">
+                    <div class="thumb-strip" id="kuliner-thumbs">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Castle_1.webp" data-index="0" class="thumb" data-gallery="kuliner">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Castle_2.webp" data-index="1" class="thumb active" data-gallery="kuliner">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Cafe_1.webp" data-index="2" class="thumb" data-gallery="kuliner">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Kuliner_1.webp" data-index="3" class="thumb" data-gallery="kuliner">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Kuliner_2.webp" data-index="4" class="thumb" data-gallery="kuliner">
+                    </div>
+                </div>
+                <button class="btn-nav btn-nav-kuliner rounded-circle" data-gallery="kuliner" data-direction="next">
+                    <i class="bi bi-arrow-right-short fs-1"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- PENDOPO SECTION -->
+    <section id="pendopo" class="section-padding gallery text-center section-pendopo">
+        <div class="container">
+            <div class="heading">
+                <h2 class="fw-bold">PENDOPO</h2>
+                <p class="lead mb-4">Tidak perlu pusing jika ada acara untuk banyak orang, Pendopo multifungsi kami dapat digunakan untuk berbagai acara, mulai dari kumpul-kumpul biasa, syukuran, bahkan untuk pernikahan</p>
+            </div>
+            <!-- Main Display -->
+            <div class="main-slide mx-auto rounded-4 overflow-hidden shadow-lg mb-4">
+                <img id="pendopo-main" src="https://www.cikaopark.com/assets/images/cp/Venue_1.webp" alt="Pendopo" class="w-100 h-100 object-fit-cover">
+            </div>
+            <!-- Navigation Bar -->
+            <div class="d-flex align-items-center justify-content-center gap-3">
+                <button class="btn-nav btn-nav-pendopo rounded-circle" data-gallery="pendopo" data-direction="prev">
+                    <i class="bi bi-arrow-left-short fs-1"></i>
+                </button>
+                <div class="thumb-wrapper">
+                    <div class="thumb-strip" id="pendopo-thumbs">
+                        <img src="https://www.cikaopark.com/assets/images/cp/pagelaran_2.webp" data-index="0" class="thumb" data-gallery="pendopo">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Venue_1.webp" data-index="1" class="thumb active" data-gallery="pendopo">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Venue_2.webp" data-index="2" class="thumb" data-gallery="pendopo">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Venue_3.webp" data-index="3" class="thumb" data-gallery="pendopo">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Venue_4.webp" data-index="4" class="thumb" data-gallery="pendopo">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Venue_5.webp" data-index="5" class="thumb" data-gallery="pendopo">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Venue_6.webp" data-index="6" class="thumb" data-gallery="pendopo">
+                    </div>
+                </div>
+                <button class="btn-nav btn-nav-pendopo rounded-circle" data-gallery="pendopo" data-direction="next">
+                    <i class="bi bi-arrow-right-short fs-1"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FASILITAS SECTION -->
+    <section id="fasilitas" class="section-padding gallery text-center section-fasilitas">
+        <div class="container">
+            <div class="heading">
+                <h2 class="fw-bold">FASILITAS LENGKAP</h2>
+                <p class="lead mb-4">Tesedia parkiran yang luas, masjid yang nyaman, dan edukasi hiburan yang lengkap!</p>
+            </div>
+            <!-- Main Display -->
+            <div class="main-slide mx-auto rounded-4 overflow-hidden shadow-lg mb-4">
+                <img id="fasilitas-main" src="https://www.cikaopark.com/assets/images/cp/Fasil_2.webp" alt="Fasilitas" class="w-100 h-100 object-fit-cover">
+            </div>
+            <!-- Navigation Bar -->
+            <div class="d-flex align-items-center justify-content-center gap-3">
+                <button class="btn-nav btn-nav-fasilitas rounded-circle" data-gallery="fasilitas" data-direction="prev">
+                    <i class="bi bi-arrow-left-short fs-1"></i>
+                </button>
+                <div class="thumb-wrapper">
+                    <div class="thumb-strip" id="fasilitas-thumbs">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Fasil_1.webp" data-index="0" class="thumb" data-gallery="fasilitas">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Fasil_2.webp" data-index="1" class="thumb active" data-gallery="fasilitas">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Fasil_3.webp" data-index="2" class="thumb" data-gallery="fasilitas">
+                        <img src="https://www.cikaopark.com/assets/images/cp/Fasil_4.webp" data-index="3" class="thumb" data-gallery="fasilitas">
+                    </div>
+                </div>
+                <button class="btn-nav btn-nav-fasilitas rounded-circle" data-gallery="fasilitas" data-direction="next">
+                    <i class="bi bi-arrow-right-short fs-1"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPERATING HOUR -->
+    <section id="hour" class="section-padding section-blue">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6 text-center">
+                    <h2 class="fw-bold text-white">Jam Operasional</h2>
+                </div>
+                <div class="col-md-6 text-center">
+                    <h2 class="fw-bold text-white">EVERYDAY</h2>
+                    <p class="text-center fs-5 text-white">PUKUL 08:00 - 17:00 WIB</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICELIST -->
+    <section id="price" class="section-padding section-green">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-5 text-white">Daftar Harga</h2>
+            <div class="row justify-content-center gy-5">
+                <div class="col-lg-7 col-sm-12">
+                    <table class="table table-borderless text-white fs-5">
+                        <thead>
+                            <tr class="fw-bold">
+                                <th scope="col"></th>
+                                <th scope="col" class="text-center">Weekdays</th>
+                                <th scope="col" class="text-center">Weekend</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pintu Utama + Taman Satwa</td>
+                                <td class="text-center">Rp20.000</td>
+                                <td class="text-center">Rp20.000</td>
+                            </tr>
+                            <tr>
+                                <td>Water Park</td>
+                                <td class="text-center">Rp30.000</td>
+                                <td class="text-center">Rp50.000</td>
+                            </tr>
+                            <tr>
+                                <td>Rumah Ilusi</td>
+                                <td class="text-center">Rp30.000</td>
+                                <td class="text-center">Rp30.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- CTA -->
+            <div class="text-center mt-3">
+                <a href="https://wa.me/628111239933" class="btn btn-light text-dark fw-bold px-5 py-3" target="_blank">
+                    Pesan Tiket Sekarang!
+                </a>
+            </div>
+        </div>
+    </section>
+
+        <!-- INSTAGRAM SECTION -->
+
+        <div class="ratio ratio-1x1 rounded-4 overflow-hidden shadow">
+          <iframe src="https://www.instagram.com/drex.dian/embed" frameborder="0" allowtransparency="true" allowfullscreen="" scrolling="no" style="border:none; width:100%; height:100%;">
+          </iframe>
+        </div>
+
+    <!-- LOCATION -->
+    <section id="location" class="section-padding section-dark">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-2 text-white">Lokasi</h2>
+            <p class="lead text-center mb-4 text-white">Jl. Kawasan Industri Cikao No.B8, Cijantung, Sukatani, Purwakarta Regency, West Java 41152</p>
+            <div class="row justify-content-center gy-5">
+                <div class="col-12 col-md-8">
+                    <div class="map-container rounded-4 overflow-hidden shadow-lg">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2772619367467!2d107.46028!3d-6.6286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e693c6b3d0a6d97%3A0x8e6b8b2a9c9b8c8!2sCikao%20Park!5e0!3m2!1sen!2sid!4v1634567890123!5m2!1sen!2sid" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <!-- CTA -->
+            <div class="text-center mt-5">
+                <a href="https://maps.app.goo.gl/zkorVxCKMAJ4kGZUA" target="_blank" class="btn btn-light text-dark fw-bold px-5 py-3">
+                    Buka Dengan Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                    <img src="https://www.cikaopark.com/assets/logos/logo_cikaopark.svg" alt="Cikao Park Logo" height="60">
+                </div>
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <div class="social-icons d-flex justify-content-center gap-3">
+                        <a href="https://www.instagram.com/cikaopark/" target="_blank" class="social-icon">
+                            <i class="bi bi-instagram fs-4"></i>
+                        </a>
+                        <a href="https://www.facebook.com/cikaopark" target="_blank" class="social-icon">
+                            <i class="bi bi-facebook fs-4"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@cikaopark" target="_blank" class="social-icon">
+                            <i class="bi bi-tiktok fs-4"></i>
+                        </a>
+                        <a href="https://wa.me/628111239933" target="_blank" class="social-icon">
+                            <i class="bi bi-whatsapp fs-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <p class="mb-0 text-white-50">© 2024 Cikao Park. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

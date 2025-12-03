@@ -1,291 +1,267 @@
-// Mobile Menu Toggle
-const menuToggle = document.getElementById('menuToggle');
-const navMenu = document.getElementById('navMenu');
+// ========================================
+// CIKAO PARK WEBSITE JAVASCRIPT
+// ========================================
 
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    menuToggle.classList.toggle('active');
-});
-
-// Close menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
-    });
-});
-
-// Header Scroll Effect
-const header = document.getElementById('header');
-let lastScroll = 0;
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+document.addEventListener('DOMContentLoaded', function() {
     
-    if (currentScroll > 100) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-    
-    lastScroll = currentScroll;
-});
+    // ========================================
+    // Gallery Configuration
+    // ========================================
+    const galleries = {
+        waterpark: {
+            mainImg: document.getElementById('waterpark-main'),
+            thumbs: document.querySelectorAll('#waterpark-thumbs .thumb'),
+            currentIndex: 1
+        },
+        satwa: {
+            mainImg: document.getElementById('satwa-main'),
+            thumbs: document.querySelectorAll('#satwa-thumbs .thumb'),
+            currentIndex: 1
+        },
+        wahana: {
+            mainImg: document.getElementById('wahana-main'),
+            thumbs: document.querySelectorAll('#wahana-thumbs .thumb'),
+            currentIndex: 1
+        },
+        kuliner: {
+            mainImg: document.getElementById('kuliner-main'),
+            thumbs: document.querySelectorAll('#kuliner-thumbs .thumb'),
+            currentIndex: 1
+        },
+        foto: {
+            mainImg: document.getElementById('foto-main'),
+            thumbs: document.querySelectorAll('#foto-thumbs .thumb'),
+            currentIndex: 1
+        },
+        ilusi: {
+            mainImg: document.getElementById('ilusi-main'),
+            thumbs: document.querySelectorAll('#ilusi-thumbs .thumb'),
+            currentIndex: 1
+        },
+        pendopo: {
+            mainImg: document.getElementById('pendopo-main'),
+            thumbs: document.querySelectorAll('#pendopo-thumbs .thumb'),
+            currentIndex: 1
+        },
+        fasilitas: {
+            mainImg: document.getElementById('fasilitas-main'),
+            thumbs: document.querySelectorAll('#fasilitas-thumbs .thumb'),
+            currentIndex: 1
+        }
+    };
 
-// Hero Slider
-let currentSlide = 0;
-const slides = document.querySelectorAll('.hero-slide');
-const prevBtn = document.getElementById('prevSlide');
-const nextBtn = document.getElementById('nextSlide');
-const dotsContainer = document.getElementById('sliderDots');
-
-// Create dots
-slides.forEach((_, index) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (index === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goToSlide(index));
-    dotsContainer.appendChild(dot);
-});
-
-const dots = document.querySelectorAll('.dot');
-
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        dots[i].classList.remove('active');
-    });
-    
-    if (index >= slides.length) {
-        currentSlide = 0;
-    } else if (index < 0) {
-        currentSlide = slides.length - 1;
-    } else {
-        currentSlide = index;
-    }
-    
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
-}
-
-function nextSlide() {
-    showSlide(currentSlide + 1);
-}
-
-function prevSlide() {
-    showSlide(currentSlide - 1);
-}
-
-function goToSlide(index) {
-    showSlide(index);
-}
-
-prevBtn.addEventListener('click', prevSlide);
-nextBtn.addEventListener('click', nextSlide);
-
-// Auto slide
-let autoSlideInterval = setInterval(nextSlide, 5000);
-
-// Pause auto slide on hover
-document.querySelector('.hero').addEventListener('mouseenter', () => {
-    clearInterval(autoSlideInterval);
-});
-
-document.querySelector('.hero').addEventListener('mouseleave', () => {
-    autoSlideInterval = setInterval(nextSlide, 5000);
-});
-
-// Calendar
-const calendarEl = document.getElementById('calendar');
-const currentDate = new Date();
-let currentMonth = currentDate.getMonth();
-let currentYear = currentDate.getFullYear();
-
-const monthNames = [
-    'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-    'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
-];
-
-const dayNames = ['Sn', 'Sl', 'Rb', 'Km', 'Jm', 'Sb', 'Mg'];
-
-function generateCalendar(month, year) {
-    const firstDay = new Date(year, month, 1).getDay();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const today = new Date();
-    
-    let calendarHTML = `
-        <div class="calendar-nav">
-            <button onclick="previousMonth()">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <span>${monthNames[month]} ${year}</span>
-            <button onclick="nextMonth()">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-        <div class="calendar-grid">
-    `;
-    
-    // Add day names
-    dayNames.forEach(day => {
-        calendarHTML += `<div class="calendar-day">${day}</div>`;
-    });
-    
-    // Add empty cells for days before the first day of month
-    const adjustedFirstDay = firstDay === 0 ? 6 : firstDay - 1;
-    for (let i = 0; i < adjustedFirstDay; i++) {
-        calendarHTML += `<div class="calendar-date"></div>`;
-    }
-    
-    // Add days of the month
-    for (let day = 1; day <= daysInMonth; day++) {
-        const date = new Date(year, month, day);
-        const isPast = date < today.setHours(0, 0, 0, 0);
-        const isToday = date.toDateString() === new Date().toDateString();
+    // ========================================
+    // Gallery Functions
+    // ========================================
+    function updateGallery(galleryName, index) {
+        const gallery = galleries[galleryName];
+        if (!gallery || !gallery.mainImg || !gallery.thumbs.length) return;
         
-        let classes = 'calendar-date';
-        if (isPast) classes += ' disabled';
-        if (isToday) classes += ' selected';
+        // Get the source from the thumbnail
+        const thumb = gallery.thumbs[index];
+        if (!thumb) return;
         
-        calendarHTML += `<div class="${classes}" onclick="selectDate(${day}, ${month}, ${year})">${day}</div>`;
+        // Update main image with fade effect
+        gallery.mainImg.style.opacity = '0';
+        setTimeout(() => {
+            gallery.mainImg.src = thumb.src;
+            gallery.mainImg.style.opacity = '1';
+        }, 200);
+        
+        // Update active state on thumbnails
+        gallery.thumbs.forEach((t, i) => {
+            t.classList.toggle('active', i === index);
+        });
+        
+        gallery.currentIndex = index;
     }
-    
-    calendarHTML += `</div>`;
-    calendarEl.innerHTML = calendarHTML;
-}
 
-function previousMonth() {
-    currentMonth--;
-    if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
+    function navigateGallery(galleryName, direction) {
+        const gallery = galleries[galleryName];
+        if (!gallery) return;
+        
+        let newIndex = gallery.currentIndex;
+        
+        if (direction === 'next') {
+            newIndex = (newIndex + 1) % gallery.thumbs.length;
+        } else {
+            newIndex = (newIndex - 1 + gallery.thumbs.length) % gallery.thumbs.length;
+        }
+        
+        updateGallery(galleryName, newIndex);
     }
-    generateCalendar(currentMonth, currentYear);
-}
 
-function nextMonth() {
-    currentMonth++;
-    if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-    }
-    generateCalendar(currentMonth, currentYear);
-}
-
-function selectDate(day, month, year) {
-    const selectedDate = new Date(year, month, day);
-    const today = new Date().setHours(0, 0, 0, 0);
-    
-    if (selectedDate < today) {
-        return;
-    }
-    
-    const allDates = document.querySelectorAll('.calendar-date');
-    allDates.forEach(date => date.classList.remove('selected'));
-    event.target.classList.add('selected');
-    
-    console.log('Selected date:', `${day}/${month + 1}/${year}`);
-}
-
-// Initialize calendar
-generateCalendar(currentMonth, currentYear);
-
-// Book Ticket Button
-const bookButtons = document.querySelectorAll('.book-btn');
-bookButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const whatsappUrl = 'https://wa.me/6282129118900?text=Order%20Tiket%20AWB';
-        window.open(whatsappUrl, '_blank');
-    });
-});
-
-// Facility Detail Buttons
-const facilityButtons = document.querySelectorAll('.facility-btn');
-facilityButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        const facilityName = button.closest('.facility-card').querySelector('h3').textContent;
-        alert(`Informasi lengkap tentang ${facilityName} akan segera hadir!`);
-    });
-});
-
-// Back to Top Button
-const backToTopBtn = document.getElementById('backToTop');
-
-backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// Smooth Scroll for Navigation Links
-const allLinks = document.querySelectorAll('a[href^="#"]');
-allLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-        if (href !== '#' && document.querySelector(href)) {
-            e.preventDefault();
-            const target = document.querySelector(href);
-            const headerHeight = header.offsetHeight;
-            const targetPosition = target.offsetTop - headerHeight - 20;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
+    // ========================================
+    // Event Listeners - Thumbnails
+    // ========================================
+    Object.keys(galleries).forEach(galleryName => {
+        const gallery = galleries[galleryName];
+        if (gallery.thumbs) {
+            gallery.thumbs.forEach((thumb, index) => {
+                thumb.addEventListener('click', () => {
+                    updateGallery(galleryName, index);
+                });
             });
         }
     });
-});
 
-// Active Navigation Link on Scroll
-const sections = document.querySelectorAll('section[id]');
+    // ========================================
+    // Event Listeners - Navigation Buttons
+    // ========================================
+    document.querySelectorAll('.btn-nav').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const galleryName = this.getAttribute('data-gallery');
+            const direction = this.getAttribute('data-direction');
+            navigateGallery(galleryName, direction);
+        });
+    });
 
-window.addEventListener('scroll', () => {
-    const scrollPosition = window.pageYOffset + 150;
+    // ========================================
+    // Smooth Scroll for Navigation Links
+    // ========================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = target.offsetTop - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                    if (bsCollapse) bsCollapse.hide();
+                }
+            }
+        });
+    });
+
+    // ========================================
+    // Navbar Shadow on Scroll
+    // ========================================
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('shadow');
+        } else {
+            navbar.classList.remove('shadow');
+        }
+    });
+
+    // ========================================
+    // Scroll Animations
+    // ========================================
+    const scrollElements = document.querySelectorAll('.scroll-animate');
     
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
+    const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (
+            elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+        );
+    };
+
+    const displayScrollElement = (element) => {
+        element.classList.add('visible');
+    };
+
+    const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+            if (elementInView(el, 1.25)) {
+                displayScrollElement(el);
+            }
+        });
+    };
+
+    window.addEventListener('scroll', handleScrollAnimation);
+    handleScrollAnimation(); // Run on load
+
+    // ========================================
+    // Add Image Transition Style
+    // ========================================
+    Object.keys(galleries).forEach(galleryName => {
+        const gallery = galleries[galleryName];
+        if (gallery.mainImg) {
+            gallery.mainImg.style.transition = 'opacity 0.3s ease';
+        }
+    });
+
+    // ========================================
+    // Touch/Swipe Support for Galleries
+    // ========================================
+    Object.keys(galleries).forEach(galleryName => {
+        const mainSlide = document.querySelector(`#${galleryName === 'foto' ? 'taman-bunga' : galleryName} .main-slide`);
+        if (!mainSlide) return;
         
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        mainSlide.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        mainSlide.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe(galleryName);
+        }, { passive: true });
+        
+        function handleSwipe(gallery) {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    navigateGallery(gallery, 'next');
+                } else {
+                    navigateGallery(gallery, 'prev');
+                }
+            }
+        }
+    });
+
+    // ========================================
+    // Auto-rotate galleries (optional - currently disabled)
+    // ========================================
+    // Uncomment below to enable auto-rotation
+    /*
+    const autoRotateInterval = 5000; // 5 seconds
+    
+    Object.keys(galleries).forEach(galleryName => {
+        setInterval(() => {
+            navigateGallery(galleryName, 'next');
+        }, autoRotateInterval);
+    });
+    */
+
+    // ========================================
+    // Lazy Loading for Images
+    // ========================================
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                    observer.unobserve(img);
                 }
             });
-        }
-    });
-});
+        });
 
-// Fade In Animation on Scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-        }
-    });
-}, observerOptions);
-
-const animatedElements = document.querySelectorAll('.facility-card, .about-content, .ticket-widget');
-animatedElements.forEach(el => observer.observe(el));
-
-// Search Button (placeholder functionality)
-const searchBtn = document.querySelector('.search-btn');
-searchBtn.addEventListener('click', () => {
-    const searchTerm = prompt('Cari wahana atau informasi:');
-    if (searchTerm) {
-        alert(`Mencari: ${searchTerm}\n\nFitur pencarian akan segera hadir!`);
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
     }
-});
 
-// Console welcome message
-console.log('%cAnugerah Waterpark Bunder', 'color: #4CAF50; font-size: 24px; font-weight: bold;');
-console.log('%cSelamat datang! Visit us at Purwakarta', 'color: #666; font-size: 14px;');
+    console.log('Cikao Park website loaded successfully!');
+});
